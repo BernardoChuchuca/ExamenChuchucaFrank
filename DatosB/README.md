@@ -1,4 +1,4 @@
-﻿# Proyecto_Z
+﻿# Examen_Interciclo_Chuchuca_Torres
 Este proyecto es una aplicación Angular servida con Apache, ejecutada en un contenedor Docker basado en Debian.
 
 ## Requisitos
