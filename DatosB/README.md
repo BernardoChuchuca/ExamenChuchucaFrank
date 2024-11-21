@@ -1,27 +1,57 @@
-# DatosB
+﻿# Proyecto_Z
+Este proyecto es una aplicación Angular servida con Apache, ejecutada en un contenedor Docker basado en Debian.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+## Requisitos
 
-## Development server
+- Docker
+- Node.js y npm (opcional, si quieres construir el proyecto en tu máquina local)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Configuración de la Aplicación Angular
 
-## Code scaffolding
+La aplicación Angular está configurada para mostrar el mensaje "¡Bienvenido a mi servidor Docker con Angular!" en la página principal.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Pasos para Construir y Ejecutar el Proyecto
 
-## Build
+### 1. Clonar el repositorio
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Clona este repositorio en tu máquina local:
 
-## Running unit tests
+```bash
+git clone https://github.com/BernardoChuchuca/ExamenChuchucaFrank.git
+cd ExamenChuchucaFrank
+```
+### 2. Construcción de la Imagen Docker
+Para construir la imagen Docker, asegúrate de estar en el directorio del proyecto y luego ejecuta el siguiente comando:
+```bash
+docker build -t bnachoxt/pruebac .  
+```
+### 3. Ejecución del Contenedor Docker
+Ejecuta el siguiente comando para iniciar el contenedor Docker con tu aplicación Angular servida por Apache:
+```bash
+docker run -d -p 80:80 -v ${PWD}/DatosB/dist/datos-b/browser:/var/www/html --name examen bnachoxt/pruebac
+```
+4. Acceso a la Aplicación
+Una vez que el contenedor esté ejecutándose, abre un navegador web y ve a :
+```bash
+http://localhost
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+6. Publicación en DockerHub
+Si deseas publicar esta imagen en DockerHub:
 
-## Running end-to-end tests
+Inicia sesión en DockerHub:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+``` bash
+docker login
+```
+Etiqueta la imagen
 
-## Further help
+```bash
+docker tag bnachoxt/pruebac
+```
+Sube la imagen:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+
+docker push bnachoxt/pruebac:latest    
+```
